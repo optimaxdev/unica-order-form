@@ -1,272 +1,109 @@
-setTimeout(()=>{
-    const ratingRadios = document.querySelectorAll('input[name="ExperienceRating"]');
-    const tabs = document.querySelectorAll('.tab');
-    const feedback = document.getElementById('feedback') || { value: "" };
-    const FormDataInput = document.querySelector('.form');
-    const emoji = document.querySelectorAll('.componeEmoji');
-    const emojiTwo = document.querySelectorAll('.comptwoEmoji');
-    const answerEmojiOs=document.querySelectorAll('.componeEmoji input');
-    const star = document.querySelectorAll('.star');
-    const ratingError = document.querySelector('.rating');
-    let orderStatusContainer = document.querySelector('.orderStatus');
-    const thankyoupagev1=document.querySelector('.tp1');
-    const thankyoupagev2=document.querySelector('.tp2');
-    const emojiSelectors = ['.componeEmoji', '.comptwoEmoji'];
-    const  scrolltop=document.querySelector('.cmsPage');
-    if (!FormDataInput) {
-        console.error("Form not found");
-        return;
-    }
-    
-    const errorMessages = {
-        reason: document.querySelector('#reason-error'),
-        orderStatus: document.querySelector('#order-status-error'),
-        satisfaction: document.querySelector('#satisfaction-error'),
-        rating: document.querySelector('#rating-error'),
-        feedback: document.querySelector('#feedback-error')
-    };
-    
-    
-    
-    emojiSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(tabemoji => {
-    tabemoji.addEventListener("click", () => {
-    // Remove active class from all emojis in the same category
-    document.querySelectorAll(selector).forEach(link => {
-        link.classList.remove("emojiactive");
-    });
-    
-    // Add active class to the clicked emoji
-    tabemoji.classList.add("emojiactive");
-    });
-    });
-    });
-    
-    
-    // Tab Selection Handler
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            tabs.forEach(link => link.classList.remove("activeoption"));
-            tab.classList.add("activeoption");
+ document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("form");
+      const inputs = form.querySelectorAll("input");
+      const dateInput = document.getElementById("dateOrder");
+      const dateError = document.getElementById("dateOrder-error");
+      const formError = document.getElementById("form-error");
+
+      formError.style.display = "none";
+
+      // Auto-format date input as DD/MM/YYYY
+      if (dateInput) {
+        dateInput.setAttribute("maxlength", "10");
+        dateInput.addEventListener("input", () => {
+          let val = dateInput.value.replace(/[^\d]/g, ""); // only digits
+
+          if (val.length > 2 && val.length <= 4) {
+            val = val.slice(0, 2) + "/" + val.slice(2);
+          } else if (val.length > 4) {
+            val = val.slice(0, 2) + "/" + val.slice(2, 4) + "/" + val.slice(4, 8);
+          }
+          dateInput.value = val;
+
+          // Hide error if input is complete and valid format
+          if (val.length === 10) {
+            dateError.style.display = "none";
+          }
+          // Also hide the general form error when typing in date
+          formError.style.display = "none";
         });
-    });
-    
-    // Update Star Colors Based on Rating
-    ratingRadios.forEach(radio => {
-        radio.addEventListener('change', () => updateStarColors(radio.value));
-    });
-    
-    function updateStarColors(selectedRating) {
-        const stars = document.querySelectorAll('.star svg path');
-        const starArea = document.querySelectorAll('.star');
-        if (!stars.length) return;
-    
-        stars.forEach((star, index) => {
-            star.style.fill = index < selectedRating ? '#C08C17' : '#DBE1E5';
+      }
+
+      function isValidDate(dateStr) {
+        if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dateStr)) return false;
+
+        const [day, month, year] = dateStr.split("/").map(Number);
+        if (month < 1 || month > 12) return false;
+        if (day < 1) return false;
+
+        const daysInMonth = [
+          31,
+          (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28,
+          31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+        ];
+
+        if (day > daysInMonth[month - 1]) return false;
+
+        return true;
+      }
+
+      // Hide errors on input
+      inputs.forEach(input => {
+        input.addEventListener("input", () => {
+          const errorEl = document.getElementById(`${input.id}-error`);
+          if (input.value.trim() !== "" && errorEl) {
+            errorEl.style.display = "none";
+          }
+          formError.style.display = "none";
         });
-        starArea.forEach((starearound, index) => {
-            index < selectedRating ? starearound.classList.add('activearea') : starearound.classList.remove('activearea');
-        });
-    }
-    
-    function validateInput(input) {
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
         let isValid = true;
-    if (input.name === "ReasonForContact") {
-    const reasonForContact = document.querySelector('input[name="ReasonForContact"]:checked');
-    
-    if (!reasonForContact) {
-    errorMessages.reason.style.display = 'block';
-    tabs.forEach(tab => tab.classList.add('errorTab'));
-    isValid = false;
-    } else {
-    errorMessages.reason.style.display = 'none';
-    tabs.forEach(tab => tab.classList.remove('errorTab'));
-    
-    // Ensure `orderStatus` exists before trying to modify it
-    if (reasonForContact.value === "Order Status") {
-    
-    if (orderStatusContainer) {
-        orderStatusContainer.classList.remove('hide');
-    }
-    
-    }
-    else{
-        orderStatusContainer.classList.add('hide'); 
-        emoji.forEach((e)=>{ e.classList.remove('emojiactive')})
-        answerEmojiOs.forEach(eos=>eos.checked=false)
-    }
-    }
-    }
-    
-    if (input.name === "ReceivedOrderStatus") {
-    let reasonForContact = document.querySelector('input[name="ReasonForContact"]:checked');
-    
-    // Ensure `reasonForContact` is selected before checking its value
-    if (reasonForContact && reasonForContact.value === "Order Status") {
-    const orderStatus = document.querySelector('input[name="ReceivedOrderStatus"]:checked');
-    
-    if (!orderStatus) {
-    errorMessages.orderStatus.style.display = 'block';
-    emoji.forEach(emojilike => emojilike.classList.add('errorTab'));
-    isValid = false;
-    } else {
-    errorMessages.orderStatus.style.display = 'none';
-    emoji.forEach(emojilike => emojilike.classList.remove('errorTab'));
-    }
-    }
-    }
-        if (input.name === "Satisfied") {
-            const satisfaction = document.querySelector('input[name="Satisfied"]:checked');
-            if (!satisfaction) {
-                errorMessages.satisfaction.style.display = 'block';
-                isValid = false;
-                emojiTwo.forEach(emojilike => emojilike.classList.add('errorTab'));
-            } else {
-                errorMessages.satisfaction.style.display = 'none';
-                emojiTwo.forEach(emojilike => emojilike.classList.remove('errorTab'));
-            }
-        }
-    
-        if (input.name === "ExperienceRating") {
-            const rating = document.querySelector('input[name="ExperienceRating"]:checked');
-            if (!rating) {
-                errorMessages.rating.style.display = 'block';
-                ratingError?.classList.add('errorTab');
-                isValid = false;
-            } else {
-                errorMessages.rating.style.display = 'none';
-                ratingError?.classList.remove('errorTab');
-            }
-        }
-       if( input.name === "TellUsMore"){
-        if (feedback.value.trim() === "") {
-            errorMessages.feedback.style.display = 'block';
+
+        inputs.forEach(input => {
+          const errorEl = document.getElementById(`${input.id}-error`);
+          if (input.value.trim() === "") {
+            if (errorEl) errorEl.style.display = "block";
             isValid = false;
-        } else {
-            errorMessages.feedback.style.display = 'none';
-        }
-    }
-        return isValid;
-    }
-    
-    document.querySelectorAll('.radio, .focus').forEach(input => {
-        input.addEventListener('input', (e) => validateInput(e.target));
-    });
-    
-    FormDataInput.addEventListener('submit', function (event) {
-    let isFormValid = true;
-    let firstErrorElement = null;
-    // Validate each input element
-    document.querySelectorAll('.radio, .focus').forEach(input => {
-    if (!validateInput(input)) {
-    isFormValid = false;
-    
-    // Check if the input has an error class or error message visible
-    if (!firstErrorElement && input.closest('.errorTab')) {
-        firstErrorElement = input.closest('.errorTab');
-    }
-    }
-    });
-    
-    if (!isFormValid) {
-    event.preventDefault();
-    
-    // Scroll to the first error element (smoothly)
-    if (firstErrorElement) {
-    firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    
-    return;  // Prevent form submission
-    }
-    let selectedReasonForContact = document.querySelector('input[name="ReasonForContact"]:checked');
-   let selectedSatisfied = document.querySelector('input[name="Satisfied"]:checked');
-   let ReceivedOrderStatus=document.querySelector('input[name="ReceivedOrderStatus"]:checked');
-   let ctaChat=document.querySelector('.ctaChat');
-    if ( selectedReasonForContact.value === "Billing") {
-        thankyoupagev1.classList.add('display');
-        sendMKTEvents('GeneralNonInteraction','Billing','TYP - Visible')
-    }
-    if (selectedSatisfied.value === "No" && selectedReasonForContact.value !== "Billing" &&  selectedReasonForContact.value !== "Order Status" && !ReceivedOrderStatus) {
-      
-        thankyoupagev2.classList.add('display','genCta');
- 
-    } 
-    if(selectedReasonForContact.value === "Return"){
-        ctaChat.setAttribute('href', 'https://gusa.ada.support/chat/?greeting=647f512cedb97bd50ca76a9a');
-
-        ctaChat.addEventListener('click', function () {
-            sendMKTEvents('GeneralInteraction','Return', 'CTA - Try Our Chat - Clicked');
+          } else {
+            if (errorEl) errorEl.style.display = "none";
+          }
         });
-        sendMKTEvents('GeneralNonInteraction','Return','TYP - Visible')
-        
-             }
-           
-             if(selectedReasonForContact.value === "Cancellation"){
-                ctaChat.setAttribute('href','https://gusa.ada.support/chat/?greeting=63f20f3c989594489629a005')
-                sendMKTEvents('GeneralNonInteraction','Cancellation','TYP - Visible')
-                ctaChat.addEventListener('click', function () {
-                    sendMKTEvents('GeneralInteraction','Cancellation', 'CTA - Try Our Chat - Clicked');
-                });
-               
-                     }
-                  
-                     if(selectedReasonForContact.value === "Prescription"){
-                        ctaChat.setAttribute('href','https://gusa.ada.support/chat/?greeting=652d0c706d8aca8244a6addd')
-                        sendMKTEvents('GeneralNonInteraction','Prescription','TYP - Visible')
-                        ctaChat.addEventListener('click', function () {
-                            sendMKTEvents('GeneralInteraction','Prescription', 'CTA - Try Our Chat - Clicked');
-                        });
-                             }
-                          
-    if( selectedReasonForContact.value === "Order Status"){
-        if(ReceivedOrderStatus.value ==="No" ){
-        thankyoupagev2.classList.add('display','osCta');
-        sendMKTEvents('GeneralNonInteraction','Order Status','TYP - Visible')
- 
-        }
-        else{
-            thankyoupagev1.classList.add('display');
-            sendMKTEvents('GeneralNonInteraction','Order Status','TYP - Visible');
-        }
-    }
-   
 
-    document.querySelector('.customerFeedback').innerHTML='';
-    if(scrolltop){
-   scrolltop.scrollIntoView({inline: "nearest" });
-    }
-    sendTogSheet(event);  // Proceed with form submission if valid
-   
-    });
-    // Helper function to check if an element has an error (i.e., error message is visible)
-    function isErrorVisible(input) {
-    const errorElement = document.querySelector(`#${input.name}-error`);
-    return errorElement && errorElement.style.display !== 'none';
-    }
-    
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz8XckhsRg_bFyio7ZqDwWEdqJPds_ZjS7DNcMaKWJbfFxb-zmHWPVl4zouhGEb4PlI/exec';
-    
-    function sendTogSheet(event) {
-        event.preventDefault();
-        const responseBody = new FormData(FormDataInput);
-        const TrendBody = responseBody.getAll("TRENDS")?.join(" ") || "";
-        responseBody.set('TRENDS', TrendBody);
-    
+        if (dateInput && dateInput.value.trim() !== "") {
+          if (!isValidDate(dateInput.value.trim())) {
+            dateError.style.display = "block";
+            dateInput.focus();
+            isValid = false;
+          } else {
+            dateError.style.display = "none";
+          }
+        }
+
+        if (!isValid) {
+          formError.style.display = "block";
+          return;
+        } else {
+          formError.style.display = "none";
+        }
+
+        // All good — do your fetch or submit here:
+        const formData = new FormData(form);
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyiTQwQbefgFW9I6ch_VFhrydcYDY6LdvifVPPtUMDxrWAzvUmkFvAtdJo5mo1pepXC/exec';
+
         fetch(scriptURL, {
-            method: 'POST',
-            body: responseBody
+          method: "POST",
+          body: formData
         })
-    
-        .then(response => response.text())
-        .then(data => {
-            // alert('Success! Form submitted.');
-            FormDataInput.reset();
-        })
-        .catch(error => alert('Error: ' + error.message));
-    }
-    
-
-    
-    },400)
-
-
+          .then(response => {
+            alert("הטופס נשלח בהצלחה!");
+            form.reset();
+          })
+          .catch(error => {
+            alert("שגיאה! " + error.message);
+          });
+      });
+    });

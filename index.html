@@ -1,253 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <title>Landing Page - Preview</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+  
 </head>
 
-<body style="margin: 0;position: relative;">
-    <div class="customerFeedback">
-        <div class="header">
-                <h1>Your Feedback Matters</h1>
-                <div class="txt">Tell us about your experience to help make our service even better. </div>
-      
+<body>
+    <div class="unicaFormOrder">
+
+        <img src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp25/unica-brand.png"
+            class="banner" alt="">
+
+        <div class="strip">פרטי הזמנה</div>
+
+    <form id="form" class="form" method="POST">
+      <div class="cotnianer">
+        <div class="areaInput">
+          <div class="title">
+            <label for="customerName">שם לקוח/ה</label>
+          </div>
+          <div>
+            <input name="customerName" class="focus" type="text" id="customerName" placeholder="שם לקוח/ה">
+            <div id="customerName-error" class="errorMessage">שדה חובה</div>
+          </div>
         </div>
-        <div class="responsive">
-        <form id="form" class="form" method="POST">
-            <div class="title">
-                <div class="badge">1/4</div>
-                <label for="reason">Why did you reach out to us?</label>
-            </div>
-            <div class="tabs">
-                <div class="tab"> <input class="radio" type="radio" name="ReasonForContact" value="Billing"
-                        id="billing">
-                    <div class="cricle"><svg class="v" xmlns="http://www.w3.org/2000/svg" width="11" height="8"
-                            viewBox="0 0 11 8" fill="none">
-                            <path d="M1 3.95118L3.87718 7L9.57143 1" stroke="white" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></div> <span>Billing </span>
-                </div>
-                <div class="tab"> <input class="radio" type="radio" name="ReasonForContact" value="Order Status"
-                        id="orderStatus">
-                    <div class="cricle"><svg class="v" xmlns="http://www.w3.org/2000/svg" width="11" height="8"
-                            viewBox="0 0 11 8" fill="none">
-                            <path d="M1 3.95118L3.87718 7L9.57143 1" stroke="white" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></div>
-                    <span> Order Status </span>
-                </div>
-                <div class="tab"> <input class="radio" type="radio" name="ReasonForContact" value="Return" id="return">
-                    <div class="cricle"><svg class="v" xmlns="http://www.w3.org/2000/svg" width="11" height="8"
-                            viewBox="0 0 11 8" fill="none">
-                            <path d="M1 3.95118L3.87718 7L9.57143 1" stroke="white" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></div> <span> Return </span>
-                </div>
-                <div class="tab"> <input class="radio" type="radio" name="ReasonForContact" value="Cancellation"
-                        id="cancellation">
-                    <div class="cricle"><svg class="v" xmlns="http://www.w3.org/2000/svg" width="11" height="8"
-                            viewBox="0 0 11 8" fill="none">
-                            <path d="M1 3.95118L3.87718 7L9.57143 1" stroke="white" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></div> <span> Cancellation </span>
-                </div>
-                <div class="tab"> <input class="radio" type="radio" name="ReasonForContact" value="Prescription"
-                        id="prescription">
-                    <div class="cricle"><svg class="v" xmlns="http://www.w3.org/2000/svg" width="11" height="8"
-                            viewBox="0 0 11 8" fill="none">
-                            <path d="M1 3.95118L3.87718 7L9.57143 1" stroke="white" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></div> <span> Prescription </span>
-                </div>
-
-            </div>
-            <div id="reason-error" class="errorMessage">This field is required.</div>
-            <div class="orderStatus hide">
-                <div class="title mt">
-                    <label for="orderStatus">Did you receive an order status?</label>
-                </div>
-                <div class="emojis">
-                    <div class="emoji componeEmoji">
-                        <input type="radio" class="radio" name="ReceivedOrderStatus" value="Yes" id="Yes">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                            <path
-                                d="M5.44586 9.78436V19.1325C5.44586 19.8877 6.05812 20.5 6.81338 20.5H16.0115C16.5512 20.5 17.0405 20.1826 17.2604 19.6897L20.568 12.3596C21.1734 11.0029 20.1804 9.47257 18.6948 9.47257H14.2131C13.2385 9.47257 12.5767 8.48214 12.9496 7.58173L13.4568 6.35728C14.397 4.0874 13.3191 1.48511 11.0493 0.544891C10.6408 0.375698 10.2322 0.70818 10.2322 1.1503C10.2322 3.95967 8.78404 6.4306 6.59352 7.85772C5.9286 8.29092 5.44586 8.99078 5.44586 9.78436Z"
-                                fill="#DBE1E5" />
-                            <path
-                                d="M0.751648 19.1325V9.1307C0.751648 8.37544 1.35888 7.76318 2.11415 7.76318H3.08288C3.83814 7.76318 4.44537 8.37544 4.44537 9.1307V19.1325C4.44537 19.8878 3.83814 20.5 3.08288 20.5H2.11415C1.35888 20.5 0.751648 19.8878 0.751648 19.1325Z"
-                                fill="#DBE1E5" />
-                        </svg>
-                    </div>
-                    <div class="emoji componeEmoji">
-                        <input type="radio" class="radio" name="ReceivedOrderStatus" value="No" id="No">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                            <path
-                                d="M15.5541 11.2156L15.5541 1.86752C15.5541 1.11226 14.9418 0.5 14.1866 0.5L4.98841 0.5C4.44869 0.5 3.95945 0.817366 3.73955 1.31026L0.431892 8.64037C-0.173439 9.99714 0.819496 11.5274 2.30519 11.5274H6.78687C7.76148 11.5274 8.42326 12.5179 8.0503 13.4183L7.54312 14.6427C6.6029 16.9126 7.68081 19.5149 9.95069 20.4551C10.3592 20.6243 10.7678 20.2918 10.7678 19.8497C10.7678 17.0403 12.2159 14.5694 14.4064 13.1423C15.0713 12.7091 15.5541 12.0092 15.5541 11.2156Z"
-                                fill="#DBE1E5" />
-                            <path
-                                d="M20.2483 1.86751L20.2483 11.8693C20.2483 12.6246 19.6411 13.2368 18.8858 13.2368H17.9171C17.1618 13.2368 16.5546 12.6246 16.5546 11.8693L16.5546 1.86751C16.5546 1.11225 17.1618 0.49999 17.9171 0.49999H18.8858C19.6411 0.49999 20.2483 1.11225 20.2483 1.86751Z"
-                                fill="#DBE1E5" />
-                        </svg>
-                    </div>
-                </div>
-                <div id="order-status-error" class="errorMessage">This field is required.</div>
-            </div>
-            <div class="title">
-                <div class="badge">2/4</div>
-                <label for="satisfaction">Was the issue you contacted us about successfully resolved?</label>
-            </div>
-            <div>
-                <div class="emojis">
-                    <div class="emoji comptwoEmoji">
-                        <input type="radio" class="radio" name="Satisfied" value="Yes" id="Yes">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                            <path
-                                d="M5.44586 9.78436V19.1325C5.44586 19.8877 6.05812 20.5 6.81338 20.5H16.0115C16.5512 20.5 17.0405 20.1826 17.2604 19.6897L20.568 12.3596C21.1734 11.0029 20.1804 9.47257 18.6948 9.47257H14.2131C13.2385 9.47257 12.5767 8.48214 12.9496 7.58173L13.4568 6.35728C14.397 4.0874 13.3191 1.48511 11.0493 0.544891C10.6408 0.375698 10.2322 0.70818 10.2322 1.1503C10.2322 3.95967 8.78404 6.4306 6.59352 7.85772C5.9286 8.29092 5.44586 8.99078 5.44586 9.78436Z"
-                                fill="#DBE1E5" />
-                            <path
-                                d="M0.751648 19.1325V9.1307C0.751648 8.37544 1.35888 7.76318 2.11415 7.76318H3.08288C3.83814 7.76318 4.44537 8.37544 4.44537 9.1307V19.1325C4.44537 19.8878 3.83814 20.5 3.08288 20.5H2.11415C1.35888 20.5 0.751648 19.8878 0.751648 19.1325Z"
-                                fill="#DBE1E5" />
-                        </svg>
-                    </div>
-                    <div class="emoji comptwoEmoji">
-                        <input type="radio" class="radio" name="Satisfied" value="No" id="No">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                            <path
-                                d="M15.5541 11.2156L15.5541 1.86752C15.5541 1.11226 14.9418 0.5 14.1866 0.5L4.98841 0.5C4.44869 0.5 3.95945 0.817366 3.73955 1.31026L0.431892 8.64037C-0.173439 9.99714 0.819496 11.5274 2.30519 11.5274H6.78687C7.76148 11.5274 8.42326 12.5179 8.0503 13.4183L7.54312 14.6427C6.6029 16.9126 7.68081 19.5149 9.95069 20.4551C10.3592 20.6243 10.7678 20.2918 10.7678 19.8497C10.7678 17.0403 12.2159 14.5694 14.4064 13.1423C15.0713 12.7091 15.5541 12.0092 15.5541 11.2156Z"
-                                fill="#DBE1E5" />
-                            <path
-                                d="M20.2483 1.86751L20.2483 11.8693C20.2483 12.6246 19.6411 13.2368 18.8858 13.2368H17.9171C17.1618 13.2368 16.5546 12.6246 16.5546 11.8693L16.5546 1.86751C16.5546 1.11225 17.1618 0.49999 17.9171 0.49999H18.8858C19.6411 0.49999 20.2483 1.11225 20.2483 1.86751Z"
-                                fill="#DBE1E5" />
-                        </svg>
-                    </div>
-                </div>
-                <div id="satisfaction-error" class="errorMessage">This field is required.</div>
-            </div>
-            <div class="title">
-                <div class="badge">3/4</div>
-                <label for="rating">How would you rate your overall experience on this call?</label>
-            </div>
-            <div>
-
-                <div class="rating-container">
-                    <div class="rating" id="rating">
-                        <label class="star firststar">
-                            <input type="radio" class="review" name="ExperienceRating" value="1" />
-                            <svg class="fill" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
-                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M13.2958 6.28554L20 7.63914L15.3334 12.878L16.1803 20L10 16.9521L3.81891 20L4.66656 12.878L0 7.63914L6.70337 6.28554L10 0L13.2958 6.28554Z"
-                                    fill="#DBE1E5" />
-                            </svg>
-                        </label>
-                        <label class="star">
-                            <input type="radio" class="review" name="ExperienceRating" value="2" />
-                            <svg class="fill" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
-                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M13.2958 6.28554L20 7.63914L15.3334 12.878L16.1803 20L10 16.9521L3.81891 20L4.66656 12.878L0 7.63914L6.70337 6.28554L10 0L13.2958 6.28554Z"
-                                    fill="#DBE1E5" />
-                            </svg>
-                        </label>
-                        <label class="star">
-                            <input type="radio" class="review" name="ExperienceRating" value="3" />
-                            <svg class="fill" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
-                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M13.2958 6.28554L20 7.63914L15.3334 12.878L16.1803 20L10 16.9521L3.81891 20L4.66656 12.878L0 7.63914L6.70337 6.28554L10 0L13.2958 6.28554Z"
-                                    fill="#DBE1E5" />
-                            </svg>
-                        </label>
-                        <label class="star">
-                            <input type="radio" class="review" name="ExperienceRating" value="4" />
-                            <svg class="fill" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
-                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M13.2958 6.28554L20 7.63914L15.3334 12.878L16.1803 20L10 16.9521L3.81891 20L4.66656 12.878L0 7.63914L6.70337 6.28554L10 0L13.2958 6.28554Z"
-                                    fill="#DBE1E5" />
-                            </svg>
-                        </label>
-                        <label class="star">
-                            <input type="radio" class="review" name="ExperienceRating" value="5" />
-                            <svg class="fill" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
-                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M13.2958 6.28554L20 7.63914L15.3334 12.878L16.1803 20L10 16.9521L3.81891 20L4.66656 12.878L0 7.63914L6.70337 6.28554L10 0L13.2958 6.28554Z"
-                                    fill="#DBE1E5" />
-                            </svg>
-                        </label>
-                    </div>
-                </div>
-                <div class="textRating">
-                    <div class="reviewname">Bad</div>
-                    <div class="reviewname"></div>
-                    <div class="reviewname"></div>
-                    <div class="reviewname"></div>
-                    <div class="reviewname">Excellent</div>
-                </div>
-                <div id="rating-error" class="errorMessage">This field is required.</div>
-            </div>
-            <div class="title">
-                <div class="badge">4/4</div>
-                <label for="rating">Please tell us more about your experience with us.</label>
-            </div>
-            <div>
-
-                <textarea name="TellUsMore" class="focus" id="feedback" placeholder="e.g, overall, my experience was..."></textarea>
-             
-                <div id="feedback-error" class="errorMessage">This field is required.</div>
-                </div>
-                <button class="cta" type="submit" id="submit">Submit</button>
-        </form>
+        <div class="areaInput">
+          <div class="title">
+            <label for="opticaName">שם האופטיקה</label>
+          </div>
+          <div>
+            <input name="opticaName" class="focus" type="text" id="opticaName" placeholder="שם האופטיקה">
+            <div id="opticaName-error" class="errorMessage">שדה חובה</div>
+          </div>
         </div>
-   
+        <div class="areaInput">
+          <div class="title">
+            <label for="orderNumber">מס` לקוח</label>
+          </div>
+          <div>
+            <input name="orderNumber" class="focus" type="text" id="orderNumber" placeholder="מס` לקוח">
+            <div id="orderNumber-error" class="errorMessage">שדה חובה</div>
+          </div>
+        </div>
+        <div class="areaInput">
+          <div class="title">
+            <label for="dateOrder">תאריך</label>
+          </div>
+          <div>
+            <input name="dateOrder" class="focus" type="text" id="dateOrder" placeholder="יום/חודש/שנה" maxlength="10">
+            <div id="dateOrder-error" class="errorMessage">פורמט תאריך לא חוקי</div>
+          </div>
+        </div>
+      </div>
+      <button class="cta" type="submit" id="submit">שלח הזמנה</button>
+      <div id="form-error" class="errorMessage">חסרים פרטים למילוי</div>
+    </form>
     </div>
-    <div class="thankyoupage tp1" style="position: fixed;padding: 0;">
-        <div class="mask"></div>
-        <div class="thankyouMessage">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-            <rect x="0.5" y="0.5" width="36" height="36" rx="18" fill="#1262A2"/>
-            <path d="M25.0603 14.4556L17.1491 23.8839L12.4349 19.9282" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="thankyou">Thank you for your feedback!</div>
-            <div class="txttp"> We appreciate you taking the time to help us improve. </div>
-            </div>
-    </div>
-    <div class="thankyoupage tp2 " style="position: fixed;padding: 0;">
-        <div class="mask"></div>
-        <div class="thankyouMessage">
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
-            <rect x="0.5" y="0.5" width="36" height="36" rx="18" fill="#1262A2"/>
-            <path d="M25.0603 14.4556L17.1491 23.8839L12.4349 19.9282" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="thankyou">We're sorry your issue hasn’t been fully resolved.</div>
-            <div class="txttp"> We're here to help - let's sort it out: </div>
-            <a href="https://gusa.ada.support/chat/?greeting=6509cf2f118ab66b4254b7de" onclick="    sendMKTEvents('GeneralInteraction','Order Status', 'CTA - Check Your Order Status - Clicked');" target="_blank" class="ctaOs cta"> <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
-                <path d="M1.83301 5.38895V15.5H18.1662V5.38895M1.83301 5.38895L5.06387 1.50014L9.99894 1.5M1.83301 5.38895L9.99894 5.38886M18.1662 5.38895L14.9951 1.50014L9.99894 1.5M18.1662 5.38895L9.99894 5.38886M12.3327 7.72203L8.05499 7.72203M9.99894 5.38886V1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg> <span> Check Your Order Status </span></a>
-              <a href="#" class="ctaChat cta" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                <path d="M18.148 1.5H2.8518C1.85793 1.5 1.05225 2.30569 1.05225 3.29955V13.557C1.05225 14.5509 1.85793 15.3565 2.85179 15.3565H9.7158C9.75749 15.3565 9.79789 15.371 9.8301 15.3975L14.819 19.5V15.3655C14.819 15.3606 14.8231 15.3565 14.828 15.3565H18.148C19.1418 15.3565 19.9475 14.5509 19.9475 13.557V3.29955C19.9475 2.30569 19.1418 1.5 18.148 1.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15.8987 8.4328C15.8987 8.18416 15.6971 7.98291 15.4488 7.98291C15.2002 7.98291 14.9989 8.18416 14.9989 8.4328C14.9989 8.68144 15.2002 8.88269 15.4488 8.88269C15.6971 8.88269 15.8987 8.68144 15.8987 8.4328Z" fill="white"/>
-                <path d="M11.1749 8.4328C11.1749 8.18416 10.9733 7.98291 10.725 7.98291C10.4763 7.98291 10.2751 8.18416 10.2751 8.4328C10.2751 8.68144 10.4763 8.88269 10.725 8.88269C10.9733 8.88269 11.1749 8.68144 11.1749 8.4328Z" fill="white"/>
-                <path d="M6.45104 8.4328C6.45104 8.18416 6.2495 7.98291 6.00116 7.98291C5.75252 7.98291 5.55127 8.18416 5.55127 8.4328C5.55127 8.68144 5.75252 8.88269 6.00116 8.88269C6.2495 8.88269 6.45104 8.68144 6.45104 8.4328Z" fill="white"/>
-                <path d="M15.8987 8.4328C15.8987 8.18416 15.6971 7.98291 15.4488 7.98291C15.2002 7.98291 14.9989 8.18416 14.9989 8.4328C14.9989 8.68144 15.2002 8.88269 15.4488 8.88269C15.6971 8.88269 15.8987 8.68144 15.8987 8.4328Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M11.1749 8.4328C11.1749 8.18416 10.9733 7.98291 10.725 7.98291C10.4763 7.98291 10.2751 8.18416 10.2751 8.4328C10.2751 8.68144 10.4763 8.88269 10.725 8.88269C10.9733 8.88269 11.1749 8.68144 11.1749 8.4328Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6.45104 8.4328C6.45104 8.18416 6.2495 7.98291 6.00116 7.98291C5.75252 7.98291 5.55127 8.18416 5.55127 8.4328C5.55127 8.68144 5.75252 8.88269 6.00116 8.88269C6.2495 8.88269 6.45104 8.68144 6.45104 8.4328Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg> <span> Try Our Chat </span></a>
-            </div>
-    </div>
-</body>
-<script src="./script.js"></script>
-    
+
+
+    <script src="./script.js"></script>
 </body>
 
 </html>
