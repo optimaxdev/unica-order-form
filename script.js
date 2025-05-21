@@ -265,11 +265,7 @@ setTimeout(()=>{
         .catch(error => alert('Error: ' + error.message));
     }
     
-    if(window.innerWidth > 936){
-        window.location.href = "https://www.glassesusa.com/";
-      }
-    
-    },400)
+
 
 
       // Events
