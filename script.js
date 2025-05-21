@@ -244,7 +244,7 @@ setTimeout(()=>{
     return errorElement && errorElement.style.display !== 'none';
     }
     
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzMcH44vYb3x2qaiXB3vLCso1rzCqtWARBBQnLVxeyv5zFC5JIPrUvi8udl7rI_AOsy/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz8XckhsRg_bFyio7ZqDwWEdqJPds_ZjS7DNcMaKWJbfFxb-zmHWPVl4zouhGEb4PlI/exec';
     
     function sendTogSheet(event) {
         event.preventDefault();
@@ -266,14 +266,7 @@ setTimeout(()=>{
     }
     
 
+    
+    },400)
 
 
-      // Events
-  function sendMKTEvents(eventtype,action, label) {
-    dataLayer.push({
-      event: eventtype,
-      eventCategory: 'SurveyTYP - M',
-      eventAction: action,
-      eventLabel: label,
-    });
-  }
