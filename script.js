@@ -52,7 +52,7 @@
         input.addEventListener("input", () => {
           const errorEl = document.getElementById(`${input.id}-error`);
           if (input.value.trim() !== "" && errorEl) {
-            errorEl.style.display = "none";
+         errorEl.classList.remove('activeError')
           }
           formError.style.display = "none";
         });
@@ -65,11 +65,12 @@
 
         inputs.forEach(input => {
           const errorEl = document.getElementById(`${input.id}-error`);
+     
           if (input.value.trim() === "") {
-            if (errorEl) errorEl.style.display = "block";
+            if (errorEl) errorEl.classList.add('activeError')
             isValid = false;
           } else {
-            if (errorEl) errorEl.style.display = "none";
+            if (errorEl) errorEl.classList.remove('activeError')
           }
         });
 

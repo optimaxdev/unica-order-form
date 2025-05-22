@@ -2,72 +2,108 @@
 <html lang="he" dir="rtl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <title>Landing Page - Preview</title>
-    <link rel="stylesheet" href="style.css" />
-  
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+  <title>Landing Page - Preview</title>
+  <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
-    <div class="unicaFormOrder">
+  <div class="unicaFormOrder">
 
-        <img src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp25/unica-brand.png"
-            class="banner" alt="">
+    <img src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp25/unica-brand.png"
+      class="banner" alt="">
 
-        <div class="strip">פרטי הזמנה</div>
+    <div class="strip">פרטי הזמנה</div>
 
     <form id="form" class="form" method="POST">
       <div class="cotnianer">
-        <div class="areaInput">
+        <div class="areaInput" id="customerName-error">
           <div class="title">
             <label for="customerName">שם לקוח/ה</label>
           </div>
           <div>
-            <input name="customerName" class="focus" type="text" id="customerName" placeholder="שם לקוח/ה">
-            <div id="customerName-error" class="errorMessage">שדה חובה</div>
+            <input name="customerName" class="border" type="text" id="customerName" placeholder="שם לקוח/ה">
+            <div class="errorMessage">שדה חובה</div>
           </div>
         </div>
-        <div class="areaInput">
+        <div class="areaInput" id="opticaName-error">
           <div class="title">
             <label for="opticaName">שם האופטיקה</label>
           </div>
           <div>
-            <input name="opticaName" class="focus" type="text" id="opticaName" placeholder="שם האופטיקה">
-            <div id="opticaName-error" class="errorMessage">שדה חובה</div>
+            <input name="opticaName" class="border" type="text" id="opticaName" placeholder="שם האופטיקה">
+            <div  class="errorMessage">שדה חובה</div>
           </div>
         </div>
-        <div class="areaInput">
+        <div class="areaInput" id="orderNumber-error">
           <div class="title">
             <label for="orderNumber">מס` לקוח</label>
           </div>
           <div>
-            <input name="orderNumber" class="focus" type="text" id="orderNumber" placeholder="מס` לקוח">
-            <div id="orderNumber-error" class="errorMessage">שדה חובה</div>
+            <input name="orderNumber" class="border" type="text" id="orderNumber" placeholder="מס` לקוח">
+            <div  class="errorMessage">שדה חובה</div>
           </div>
         </div>
-        <div class="areaInput">
+        <div class="areaInput" id="dateOrder-error">
           <div class="title">
             <label for="dateOrder">תאריך</label>
           </div>
           <div>
-            <input name="dateOrder" class="focus" type="text" id="dateOrder" placeholder="יום/חודש/שנה" maxlength="10">
-            <div id="dateOrder-error" class="errorMessage">פורמט תאריך לא חוקי</div>
+            <input name="dateOrder" class="border" type="text" id="dateOrder" placeholder="יום/חודש/שנה" maxlength="10">
+            <div  class="errorMessage">פורמט תאריך לא חוקי</div>
           </div>
         </div>
+      </div>
+      <div class="strip">עדשות</div>
+      <div class="tabel-container">
+        <!-- <div class="postion">
+          <div class="txt"><b> R </b></div>
+          <div class="txt"><b> L </b></div>
+        </div> -->
+        <table cellspacing="0" cellpadding="0">
+          <tr>
+            <th></th>
+            <th>Sphere (SPH)</th>
+            <th>Cylinder (CYL)</th>
+            <th>Axis(AXI)</th>
+            <th>Add</th>
+            <th>Prism</th>
+            <th>Base</th>
+          </tr>
+          <tr>
+            <td>R</td>
+            <td id="sphereR-error"> <input name="sphereR" class="border" type="text" id="sphereR" placeholder=""></td>
+            <td id="cylinderR-error"> <input name="cylinderR" class="border" type="text" id="cylinderR" placeholder=""></td>
+            <td id="axisR-error"> <input name="axisR" class="border" type="text" id="axisR" placeholder=""></td>
+            <td id="addR-error"> <input name="addR" class="border" type="text" id="addR" placeholder=""></td>
+            <td id="prismR-error"> <input name="prismR" class="border" type="text" id="prismR" placeholder=""></td>
+            <td id="baseR-error"><input name="baseR" class="border" type="text" id="baseR" placeholder=""></td>
+          </tr>
+          <tr>
+            <td>L</td>
+          <td id="sphereL-error"> <input name="sphereL" class="border" type="text" id="sphereL" placeholder=""></td>
+            <td  id="cylinderL-error"> <input name="cylinderL" class="border" type="text" id="cylinderL" placeholder=""></td>
+            <td id="axisL-error"> <input name="axisL" class="border" type="text" id="axisL" placeholder=""></td>
+            <td id="addL-error"> <input name="addL" class="border" type="text" id="addL" placeholder=""></td>
+            <td id="prismL-error"> <input name="prismL" class="border" type="text" id="prismL" placeholder=""></td>
+            <td id="baseL-error"><input name="baseL" class="border" type="text" id="baseL" placeholder=""></td>
+          </tr>
+        </table>
       </div>
       <button class="cta" type="submit" id="submit">שלח הזמנה</button>
       <div id="form-error" class="errorMessage">חסרים פרטים למילוי</div>
     </form>
-    </div>
+  </div>
 
 
-    <script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

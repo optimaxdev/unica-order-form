@@ -56,7 +56,7 @@ body {
 .unicaFormOrder {
 
 
-    font-family: Roboto;
+    font-family: "Assistant", sans-serif;
     overflow: hidden;
     position: relative;
 
@@ -93,6 +93,7 @@ body {
         width: 100%;
         margin: 60px auto;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .form {
@@ -104,7 +105,7 @@ body {
             border-radius: 8px;
             border: 1px solid #DEDEDE;
             background: #FFF;
-
+            outline: 0;
 
         }
     }
@@ -137,5 +138,75 @@ body {
 
     #form-error {
         text-align: center;
+    }
+
+    .tabel-container {
+        max-width: 1300px;
+        width: 100%;
+        margin: 60px auto;
+        direction: ltr;
+        display: flex;
+        align-items: center;
+
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+
+            border: 1px solid #DEDEDE;
+
+        }
+
+        th,
+        td {
+            border: 1px solid #DEDEDE;
+            /* Borders for all cells */
+            max-width: 216px;
+            width: 100%;
+            height: 48px;
+            text-align: center;
+
+            &:first-child {
+                display: table-cell;
+                padding: 0 20px;
+                position: relative;
+                width: 30px;
+            }
+
+            width: 17%;
+            height: 48px
+        }
+
+        th {
+            background-color: #F7F8F9;
+
+
+        }
+
+        input {
+            border: 0;
+            text-align: center;
+            max-width: 216px;
+            width: 100%;
+            height: auto;
+            padding: 0;
+
+        }
+
+        .txt {
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+
+    .activeError {
+        .errorMessage {
+            display: block;
+        }
+
+        .border {
+            border: 1px solid #db2626;
+        }
     }
 }
