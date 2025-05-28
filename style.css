@@ -34,12 +34,21 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.unicaFormOrder .rtl {
+  direction: rtl;
+  max-width: 1300px;
+  margin: auto;
+}
 .unicaFormOrder .strip {
   background: #0F0F0F;
   color: #FFF;
   font-size: 18px;
   line-height: 60px;
   text-align: center;
+  margin: 60px 0;
+}
+.unicaFormOrder .strip:first-of-type {
+  margin: 0px 0 60px 0;
 }
 .unicaFormOrder .errorMessage {
   display: none;
@@ -54,11 +63,11 @@ body {
   display: flex;
   max-width: 1296px;
   width: 100%;
-  margin: 60px auto;
+  margin: auto;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.unicaFormOrder .form input {
+.unicaFormOrder .form input[type=text] {
   padding: 0 16px;
   height: 48px;
   max-width: 311px;
@@ -96,53 +105,149 @@ body {
 .unicaFormOrder .tabel-container {
   max-width: 1300px;
   width: 100%;
-  margin: 60px auto;
+  margin: auto;
   direction: ltr;
-  display: flex;
   align-items: center;
 }
 .unicaFormOrder .tabel-container table {
-  width: 100%;
-  height: 100%;
-  border-collapse: collapse;
-  border: 1px solid #DEDEDE;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  background-color: #fff;
 }
-.unicaFormOrder .tabel-container th,
-.unicaFormOrder .tabel-container td {
+.unicaFormOrder .tabel-container table th,
+.unicaFormOrder .tabel-container table td {
   border: 1px solid #DEDEDE;
-  /* Borders for all cells */
-  max-width: 216px;
-  width: 100%;
-  height: 48px;
-  text-align: center;
-  width: 17%;
-  height: 48px;
-}
-.unicaFormOrder .tabel-container th:first-child,
-.unicaFormOrder .tabel-container td:first-child {
   display: table-cell;
-  padding: 0 20px;
-  position: relative;
-  width: 30px;
+  background-color: #fff;
 }
-.unicaFormOrder .tabel-container th {
+.unicaFormOrder .tabel-container table th {
   background-color: #F7F8F9;
 }
-.unicaFormOrder .tabel-container input {
+.unicaFormOrder .tabel-container table tr:first-child th:first-child {
+  border-top-left-radius: 4px;
+}
+.unicaFormOrder .tabel-container table tr:first-child th:last-child {
+  border-top-right-radius: 4px;
+}
+.unicaFormOrder .tabel-container table tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+.unicaFormOrder .tabel-container table tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+.unicaFormOrder .tabel-container table th:not(:first-child),
+.unicaFormOrder .tabel-container table td:not(:first-child) {
+  border-left: none;
+}
+.unicaFormOrder .tabel-container table tr:not(:first-child) th,
+.unicaFormOrder .tabel-container table tr:not(:first-child) td {
+  border-top: none;
+}
+.unicaFormOrder .tabel-container input[type=text] {
   border: 0;
   text-align: center;
   max-width: 216px;
   width: 100%;
   height: auto;
   padding: 0;
+  height: 48px;
 }
 .unicaFormOrder .tabel-container .txt {
   font-size: 14px;
   font-weight: 700;
 }
-.unicaFormOrder .activeError .errorMessage {
+.unicaFormOrder .flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+.unicaFormOrder .flex .errorMessage {
+  direction: rtl;
+}
+.unicaFormOrder .table th,
+.unicaFormOrder .table td {
+  max-width: 216px;
+  width: 17%;
+  height: 48px;
+}
+.unicaFormOrder .table th:first-child,
+.unicaFormOrder .table td:first-child {
+  padding: 0 20px;
+  position: relative;
+  width: 30px;
+}
+.unicaFormOrder .tablev {
+  max-width: 632px;
+  height: 100%;
+}
+.unicaFormOrder .tablev th,
+.unicaFormOrder .tablev td {
+  width: 194px !important;
+  text-align: center;
+  width: 100%;
+  height: 48px;
+}
+.unicaFormOrder .tablev th:first-child,
+.unicaFormOrder .tablev td:first-child {
+  width: 50px !important;
+}
+.unicaFormOrder .tablev2 {
+  direction: rtl;
+  max-width: 315px;
+}
+.unicaFormOrder .tablev2 th,
+.unicaFormOrder .tablev2 td {
+  text-align: right;
+  padding-right: 20px;
+  width: 315px;
+  height: 48px;
+}
+.unicaFormOrder .tablev2 label {
+  font-size: 14px;
+}
+.unicaFormOrder .tablev3 {
+  direction: rtl;
+  max-width: 315px;
+}
+.unicaFormOrder .tablev3 th,
+.unicaFormOrder .tablev3 td {
+  text-align: right;
+  padding-right: 20px;
+  width: 315px;
+  height: 48px;
+}
+.unicaFormOrder .tablev3 label {
+  font-size: 14px;
+}
+.unicaFormOrder input[type=radio] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #B4B4B4;
+  border-radius: 2px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  margin-left: 6px;
+  vertical-align: text-top;
+}
+.unicaFormOrder input[type=radio]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L4 7L9 1' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 8px;
+}
+.unicaFormOrder .areaInput .errorMessage {
+  display: none;
+}
+.unicaFormOrder .areaInput.activeError .errorMessage {
   display: block;
 }
-.unicaFormOrder .activeError .border {
+.unicaFormOrder .areaInput.activeError .borderError {
   border: 1px solid #db2626;
 }/*# sourceMappingURL=style.css.map */

@@ -29,7 +29,8 @@
             <label for="customerName">שם לקוח/ה</label>
           </div>
           <div>
-            <input name="customerName" class="border" type="text" id="customerName" placeholder="שם לקוח/ה">
+            <input autocomplete="off" name="customerName" class="borderError" type="text" id="customerName"
+              placeholder="שם לקוח/ה">
             <div class="errorMessage">שדה חובה</div>
           </div>
         </div>
@@ -38,8 +39,9 @@
             <label for="opticaName">שם האופטיקה</label>
           </div>
           <div>
-            <input name="opticaName" class="border" type="text" id="opticaName" placeholder="שם האופטיקה">
-            <div  class="errorMessage">שדה חובה</div>
+            <input autocomplete="off" name="opticaName" class="borderError" type="text" id="opticaName"
+              placeholder="שם האופטיקה">
+            <div class="errorMessage">שדה חובה</div>
           </div>
         </div>
         <div class="areaInput" id="orderNumber-error">
@@ -47,8 +49,9 @@
             <label for="orderNumber">מס` לקוח</label>
           </div>
           <div>
-            <input name="orderNumber" class="border" type="text" id="orderNumber" placeholder="מס` לקוח">
-            <div  class="errorMessage">שדה חובה</div>
+            <input autocomplete="off" name="orderNumber" class="borderError" type="text" id="orderNumber"
+              placeholder="מס` לקוח">
+            <div class="errorMessage">שדה חובה</div>
           </div>
         </div>
         <div class="areaInput" id="dateOrder-error">
@@ -56,8 +59,9 @@
             <label for="dateOrder">תאריך</label>
           </div>
           <div>
-            <input name="dateOrder" class="border" type="text" id="dateOrder" placeholder="יום/חודש/שנה" maxlength="10">
-            <div  class="errorMessage">פורמט תאריך לא חוקי</div>
+            <input autocomplete="off" name="dateOrder" class="borderError" type="text" id="dateOrder"
+              placeholder="יום/חודש/שנה" maxlength="10">
+            <div class="errorMessage">פורמט תאריך לא חוקי</div>
           </div>
         </div>
       </div>
@@ -67,7 +71,7 @@
           <div class="txt"><b> R </b></div>
           <div class="txt"><b> L </b></div>
         </div> -->
-        <table cellspacing="0" cellpadding="0">
+        <table class="table" cellspacing="0" cellpadding="0">
           <tr>
             <th></th>
             <th>Sphere (SPH)</th>
@@ -79,24 +83,199 @@
           </tr>
           <tr>
             <td>R</td>
-            <td id="sphereR-error"> <input name="sphereR" class="border" type="text" id="sphereR" placeholder=""></td>
-            <td id="cylinderR-error"> <input name="cylinderR" class="border" type="text" id="cylinderR" placeholder=""></td>
-            <td id="axisR-error"> <input name="axisR" class="border" type="text" id="axisR" placeholder=""></td>
-            <td id="addR-error"> <input name="addR" class="border" type="text" id="addR" placeholder=""></td>
-            <td id="prismR-error"> <input name="prismR" class="border" type="text" id="prismR" placeholder=""></td>
-            <td id="baseR-error"><input name="baseR" class="border" type="text" id="baseR" placeholder=""></td>
+            <td class="areaInput" id="sphereR-error">
+              <div class="borderError">
+                <input autocomplete="off" name="sphereR" type="text" id="sphereR" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="cylinderR-error">
+              <div class="borderError">
+                <input autocomplete="off" name="cylinderR" type="text" id="cylinderR" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="axisR-error">
+              <div class="borderError">
+                <input autocomplete="off" name="axisR" type="text" id="axisR" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="addR-error">
+              <div class="borderError"><input name="addR" type="text" id="addR" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="prismR-error">
+              <div class="borderError">
+                <input autocomplete="off" name="prismR" type="text" id="prismR" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="baseR-error">
+              <div class="borderError">
+                <input autocomplete="off" name="baseR" type="text" id="baseR" placeholder="">
+              </div>
+            </td>
           </tr>
           <tr>
             <td>L</td>
-          <td id="sphereL-error"> <input name="sphereL" class="border" type="text" id="sphereL" placeholder=""></td>
-            <td  id="cylinderL-error"> <input name="cylinderL" class="border" type="text" id="cylinderL" placeholder=""></td>
-            <td id="axisL-error"> <input name="axisL" class="border" type="text" id="axisL" placeholder=""></td>
-            <td id="addL-error"> <input name="addL" class="border" type="text" id="addL" placeholder=""></td>
-            <td id="prismL-error"> <input name="prismL" class="border" type="text" id="prismL" placeholder=""></td>
-            <td id="baseL-error"><input name="baseL" class="border" type="text" id="baseL" placeholder=""></td>
+            <td class="areaInput" id="sphereL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="sphereL" type="text" id="sphereL" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="cylinderL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="cylinderL" type="text" id="cylinderL" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="axisL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="axisL" type="text" id="axisL" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="addL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="addL" type="text" id="addL" placeholder="">
+              </div>
+            </td>
+            <td class="areaInput" id="prismL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="prismL" type="text" id="prismL" placeholder="">
+              </div>
+            </td>
+
+            <td class="areaInput" id="baseL-error">
+              <div class="borderError">
+                <input autocomplete="off" name="baseL" type="text" id="baseL" placeholder="">
+              </div>
+            </td>
           </tr>
         </table>
+        <div class="flex">
+          <table class="tablev" cellspacing="0" cellpadding="0">
+            <tr>
+              <th></th>
+              <th> P.D רחוק</th>
+              <th> P.D קרוב</th>
+              <th>גובה סגמנט</th>
+            </tr>
+            <tr>
+              <td>R</td>
+              <td class="areaInput" id="distanceR-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="distanceR" type="text" id="distanceR" placeholder="">
+                </div>
+              </td>
+              <td class="areaInput" id="nearR-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="nearR" type="text" id="nearR" placeholder="">
+                </div>
+              </td>
+              <td class="areaInput" id="heightR-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="heightR" type="text" id="heightR" placeholder="">
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <td>L</td>
+              <td class="areaInput" id="distanceL-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="distanceL" type="text" id="distanceL" placeholder="">
+                </div>
+              </td>
+              <td class="areaInput" id="nearL-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="nearL" type="text" id="nearL" placeholder="">
+                </div>
+              </td>
+              <td class="areaInput" id="heightL-error">
+                <div class="borderError">
+                  <input autocomplete="off" name="heightL" type="text" id="heightL" placeholder="">
+                </div>
+              </td>
+
+            </tr>
+          </table>
+          <div>
+            <table cellspacing="0" class="tablev2" cellpadding="0">
+              <tr>
+                <th>סוג עדשה</th>
+              </tr>
+
+              <tr>
+                <td class="areaInput">
+                  <input type="radio" id="multifocal" name="lensType" value="מולטיפוקל" />
+                  <label for="multifocal">מולטיפוקל</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="areaInput">
+
+                  <input type="radio" id="mashdrio" name="lensType" value="משרדיות" />
+                  <label for="mashdrio">משרדיות</label>
+
+                </td>
+              </tr>
+              <tr>
+                <td class="areaInput">
+
+                  <input type="radio" id="protect" name="lensType" value="protect" />
+                  <label for="protect">Protect</label>
+
+                </td>
+              </tr>
+              <tr>
+                <td class="areaInput">
+
+                  <input type="radio" id="hadmakori" name="lensType" value="חד מוקדי" />
+                  <label for="hadmakori">חד מוקדי</label>
+
+                </td>
+              </tr>
+
+            </table>
+            <div id="lensType-error" class="errorMessage">אנא בחר סוג אחד של עדשה</div>
+          </div>
+          <div>
+            <table cellspacing="0" class="tablev3" cellpadding="0">
+              <tr>
+                <th>אינדקס </th>
+              </tr>
+
+              <tr>
+                <td class="areaInput">
+                  <input type="radio" id="white1.60" name="index" value="1.60 לבן" />
+                  <label for="white1.60">1.60 לבן</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="areaInput">
+
+                  <input type="radio" id="white1.67" name="index" value="1.67 לבן" />
+                  <label for="white1.67">1.67 לבן</label>
+
+                </td>
+              </tr>
+
+
+            </table>
+            <div id="index-error" class="errorMessage">אנא בחר סוג אחד של אינדקס</div>
+          </div>
+        </div>
+
       </div>
+              <div class="areaInput rtl" id="nameLenses-error">
+          <div class="title">
+            <label for="nameLenses">שם עדשה: (כל העדשות כוללות ציפוי LT)</label>
+          </div>
+          <div>
+            <input autocomplete="off" name="nameLenses" class="borderError" type="text" id="nameLenses"
+              placeholder="שם עדשה">
+            <div class="errorMessage">שדה חובה</div>
+          </div>
+        </div>
+        <div class="strip">בחר צורה / צבע</div>
       <button class="cta" type="submit" id="submit">שלח הזמנה</button>
       <div id="form-error" class="errorMessage">חסרים פרטים למילוי</div>
     </form>
