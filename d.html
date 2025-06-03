@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frame Selector Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    table.frame-selector {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+    }
+
+    table.frame-selector th,
+    table.frame-selector td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    table.frame-selector th {
+      background-color: #f4f4f4;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    td img {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <table class="frame-selector">
+    <thead>
+      <tr>
+        <th>Solid</th>
+        <th>Frame Name</th>
+        <th>Small</th>
+        <th>Medium</th>
+        <th>Large</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr data-group="retro">
+  <td><img src="frame2.png" alt="Retro Square full"></td>
+  <td><label><input type="radio" name="frameChoice" value="29 Retro Square full" data-full="retro"> 29 Retro Square full </label></td>
+  <td><label><input type="radio" name="frameValue" value="retro-s" data-size="retro"> S429 54</label></td>
+  <td><label><input type="radio" name="frameValue" value="retro-m" data-size="retro"> M029 57</label></td>
+  <td><label><input type="radio" name="frameValue" value="retro-l" data-size="retro"> L529 59</label></td>
+</tr>
+ <tr data-group="diamond">
+  <td><img src="frame1.png" alt="Diamond Cut full"></td>
+  <td><label><input type="radio" name="frameChoice" value="21 Diamond Cut full" data-full="diamond"> 21 Diamond Cut full </label></td>
+  <td><label><input type="radio" name="frameValue" value="diamond-s" data-size="diamond"> S421 50</label></td>
+  <td><label><input type="radio" name="frameValue" value="diamond-m" data-size="diamond"> M021 52</label></td>
+  <td><label><input type="radio" name="frameValue" value="diamond-l" data-size="diamond"> L521 54</label></td>
+</tr>
+      <!-- ... rest of rows unchanged ... -->
+    </tbody>
+  </table>
+
+  <script>
+   document.querySelectorAll('tr[data-group]').forEach(row => {
+  const group = row.getAttribute('data-group');
+
+  // Get the full radio for this group
+  const fullRadio = row.querySelector(`input[data-full="${group}"]`);
+  // Get all size radios for this group
+  const sizeRadios = row.querySelectorAll(`input[data-size="${group}"]`);
+
+  // When a size is selected, check the full radio too
+  sizeRadios.forEach(sizeRadio => {
+    sizeRadio.addEventListener('change', () => {
+      if (sizeRadio.checked) {
+        fullRadio.checked = true;
+      }
+    });
+  });
+
+  // When full radio is selected, uncheck all sizes
+  fullRadio.addEventListener('change', () => {
+    if (fullRadio.checked) {
+      sizeRadios.forEach(sizeRadio => sizeRadio.checked = false);
+    }
+  });
+});
+
+  </script>
+
+</body>
+</html>

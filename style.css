@@ -11,7 +11,7 @@ body {
   --nevada: #5b6971;
   --outer-space: #232b30;
 }
-@media (min-width: 936px) {
+@media (max-width: 1164px) {
   :root {
     --max-width: 1164px;
   }
@@ -38,6 +38,12 @@ body {
   direction: rtl;
   max-width: 1300px;
   margin: auto;
+}
+@media (max-width: 1164px) {
+  .unicaFormOrder .rtl {
+    max-width: 100%;
+    width: 50%;
+  }
 }
 .unicaFormOrder .strip {
   background: #0F0F0F;
@@ -161,9 +167,16 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
+  flex-wrap: wrap;
 }
 .unicaFormOrder .flex .errorMessage {
   direction: rtl;
+}
+@media (max-width: 1164px) {
+  .unicaFormOrder .flex {
+    gap: 10px;
+    justify-content: center;
+  }
 }
 .unicaFormOrder .table th,
 .unicaFormOrder .table td {
@@ -242,6 +255,87 @@ body {
   background-position: center;
   background-size: 10px 8px;
 }
+.unicaFormOrder .ltr {
+  direction: ltr;
+  max-width: 1042px;
+  margin: auto;
+}
+@media (max-width: 1164px) {
+  .unicaFormOrder .ltr {
+    max-width: 100%;
+    width: 50%;
+  }
+}
+.unicaFormOrder .ltr input[type=radio] {
+  width: 32px;
+  height: 32px;
+  vertical-align: sub;
+  margin-right: 15px;
+}
+.unicaFormOrder .ltr input[type=radio]:checked {
+  background-size: 14px 10px;
+}
+.unicaFormOrder .ltr .flex {
+  width: 394px;
+  margin: 0;
+}
+@media (max-width: 1164px) {
+  .unicaFormOrder .ltr .flex {
+    width: 354px;
+  }
+}
+.unicaFormOrder .bold {
+  vertical-align: super;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+}
+.unicaFormOrder .type {
+  margin-top: 20px;
+  justify-content: space-between;
+  display: none;
+}
+.unicaFormOrder .type input[type=radio] {
+  width: 24px;
+  height: 24px;
+  vertical-align: text-bottom;
+  margin-right: 10px;
+}
+.unicaFormOrder .type input[type=radio]:checked {
+  background-size: 14px 10px;
+}
+.unicaFormOrder .margin {
+  margin: 15px 0;
+}
+.unicaFormOrder .ltrTable {
+  direction: ltr;
+  max-width: 1042px;
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 8px;
+  border: 1px solid #A7A9AC;
+  overflow: hidden;
+}
+.unicaFormOrder .ltrTable table {
+  width: 100%;
+  text-align: center;
+}
+.unicaFormOrder .ltrTable table td,
+.unicaFormOrder .ltrTable table th {
+  width: auto;
+  height: auto;
+}
+.unicaFormOrder .ltrTable input[name=frameChoice]:first-of-type {
+  display: none;
+}
+.unicaFormOrder .headTable {
+  background-color: #F7F8F9;
+  height: 48px;
+}
+.unicaFormOrder .center {
+  text-align: center;
+}
 .unicaFormOrder .areaInput .errorMessage {
   display: none;
 }
@@ -250,4 +344,7 @@ body {
 }
 .unicaFormOrder .areaInput.activeError .borderError {
   border: 1px solid #db2626;
+}
+.unicaFormOrder .areaInput .active {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

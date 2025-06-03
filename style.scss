@@ -1,5 +1,5 @@
-@mixin desktop {
-    @media (min-width: 936px) {
+@mixin smalres {
+    @media (max-width: 1164px) {
         @content;
     }
 }
@@ -37,7 +37,7 @@ body {
 :root {
     --max-width: 1440px;
 
-    @include desktop {
+    @include smalres {
         --max-width: 1164px;
     }
 
@@ -73,6 +73,11 @@ body {
         direction: rtl;
         max-width: 1300px;
         margin: auto;
+
+        @include smalres() {
+            max-width: 100%;
+            width: 50%;
+        }
     }
 
     .strip {
@@ -236,9 +241,15 @@ body {
         display: flex;
         justify-content: space-between;
         margin: 30px auto;
+        flex-wrap: wrap;
 
         .errorMessage {
             direction: rtl;
+        }
+
+        @include smalres {
+            gap: 10px;
+            justify-content: center;
         }
     }
 
@@ -344,7 +355,112 @@ body {
     }
 
 
+    .ltr {
+        direction: ltr;
+        max-width: 1042px;
+        margin: auto;
 
+        @include smalres() {
+            max-width: 100%;
+            width: 50%;
+        }
+
+        input[type=radio] {
+            width: 32px;
+            height: 32px;
+            vertical-align: sub;
+            margin-right: 15px;
+
+            &:checked {
+
+                background-size: 14px 10px;
+            }
+        }
+
+        .flex {
+            width: 394px;
+
+            margin: 0;
+
+            @include smalres() {
+                width: 354px;
+            }
+        }
+    }
+
+    .bold {
+
+        vertical-align: super;
+
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+
+    }
+
+    .type {
+
+        margin-top: 20px;
+        justify-content: space-between;
+        display: none;
+
+        input[type=radio] {
+            width: 24px;
+            height: 24px;
+            vertical-align: text-bottom;
+            margin-right: 10px;
+
+            &:checked {
+
+                background-size: 14px 10px;
+            }
+        }
+    }
+
+    .margin {
+        margin: 15px 0;
+    }
+
+    .ltrTable {
+        direction: ltr;
+        max-width: 1042px;
+        width: 100%;
+        margin: auto;
+        margin-top: 40px;
+
+        border-radius: 8px;
+        border: 1px solid #A7A9AC;
+        overflow: hidden;
+
+        table {
+            width: 100%;
+            text-align: center;
+
+
+
+            td,
+            th {
+                width: auto;
+                height: auto;
+            }
+
+        }
+
+        input[name=frameChoice] {
+            &:first-of-type {
+                display: none;
+            }
+        }
+    }
+
+    .headTable {
+        background-color: #F7F8F9;
+        height: 48px;
+    }
+
+    .center {
+        text-align: center;
+    }
 
     .areaInput {
         .errorMessage {
@@ -360,5 +476,11 @@ body {
                 border: 1px solid #db2626;
             }
         }
+
+        .active {
+            display: flex;
+        }
     }
+
+
 }

@@ -7,6 +7,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   formError.style.display = "none";
 
+  // Handle visibility of .type section based on frame selection
+  document.querySelectorAll('.frame-section').forEach(section => {
+    const frameRadios = section.querySelectorAll('input[type="radio"][name^="frame"]');
+    const typeDivs = section.querySelectorAll('.type');
+
+    function updateVisibility() {
+      typeDivs.forEach(div => div.classList.remove('active'));
+      frameRadios.forEach(radio => {
+        if (radio.checked) {
+          const parent = radio.closest('.areaInput');
+          const type = parent.querySelector('.type');
+          if (type) type.classList.add('active');
+        }
+      });
+    }
+
+    frameRadios.forEach(radio => {
+      radio.addEventListener('change', updateVisibility);
+    });
+
+    updateVisibility(); // Initialize on page load
+  });
+
   // Auto-format and validate date input as DD/MM/YYYY
   if (dateInput) {
     dateInput.setAttribute("maxlength", "10");
@@ -21,11 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
       dateInput.value = val;
 
       const trimmedVal = dateInput.value.trim();
-
-      if (trimmedVal.length === 10) {
-        if (!isValidDate(trimmedVal)) {
-          dateError.style.display = "block";
-        }
+      if (trimmedVal.length === 10 && !isValidDate(trimmedVal)) {
+        dateError.style.display = "block";
       }
 
       formError.style.display = "none";
@@ -54,6 +74,27 @@ document.addEventListener("DOMContentLoaded", function () {
         errorEl.classList.remove("activeError");
       }
       formError.style.display = "none";
+    });
+  });
+
+  // Sync frameChoice and frameValue logic
+  document.querySelectorAll('tr[data-group]').forEach(row => {
+    const group = row.getAttribute('data-group');
+    const fullRadio = row.querySelector(`input[data-full="${group}"]`);
+    const sizeRadios = row.querySelectorAll(`input[data-size="${group}"]`);
+
+    sizeRadios.forEach(sizeRadio => {
+      sizeRadio.addEventListener('change', () => {
+        if (sizeRadio.checked) {
+          fullRadio.checked = true;
+        }
+      });
+    });
+
+    fullRadio.addEventListener('change', () => {
+      if (fullRadio.checked) {
+        sizeRadios.forEach(sizeRadio => sizeRadio.checked = false);
+      }
     });
   });
 
@@ -86,10 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
       } 
     }
 
-    // Validate all radio groups
+    // Validate radio groups (excluding frameChoice/frameValue)
     const radioGroups = new Set();
     form.querySelectorAll('input[type="radio"]').forEach(radio => {
-      radioGroups.add(radio.name);
+      if (!radio.name.startsWith('frame')) {
+        radioGroups.add(radio.name);
+      }
     });
 
     radioGroups.forEach(groupName => {
@@ -107,22 +150,44 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Validate frameChoice + frameValue pair
+    const frameRows = form.querySelectorAll('tr[data-group]');
+    let frameSelectionValid = false;
+
+    frameRows.forEach(row => {
+      const full = row.querySelector('input[data-full]');
+      const sizes = row.querySelectorAll('input[data-size]');
+      const hasFull = full.checked;
+      const hasSize = Array.from(sizes).some(r => r.checked);
+
+      if (hasFull && hasSize) {
+        frameSelectionValid = true;
+      }
+    });
+
+    const frameError = document.getElementById("frameChoice-error");
+    if (!frameSelectionValid) {
+      if (frameError) {
+        frameError.style.display = "block";
+        if (!firstErrorElement) firstErrorElement = frameError;
+      }
+      isValid = false;
+    } else {
+      if (frameError) frameError.style.display = "none";
+    }
+
     if (!isValid) {
       formError.style.display = "block";
-
-      // Scroll to first error
       if (firstErrorElement) {
         firstErrorElement.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-
       return;
     }
 
-    formError.style.display = "none";
-
     // Submit form
+    formError.style.display = "none";
     const formData = new FormData(form);
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyK2_wmdj0W9wKEwZUiMw3x4DsiPW8ajuLO3d_7a24lB2MuXNY-r9aJV67Ksz_rfAr9/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqw0Me6RLPijVmHkMQNVfUPsQngtJYLjqj5SIhnlqQd2fMDh9E_nzA21n0PmmPZW_E/exec';
 
     fetch(scriptURL, {
       method: "POST",
