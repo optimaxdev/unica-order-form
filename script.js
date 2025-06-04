@@ -98,6 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Hide pattern error when selecting a pattern
+  const patternRadios = form.querySelectorAll('input[name="frameChoicePatterns"]');
+  patternRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      const patternError = document.getElementById("frameChoicePatterns-error");
+      if (patternError) patternError.style.display = "none";
+    });
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
@@ -124,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dateError.style.display = "block";
         if (!firstErrorElement) firstErrorElement = dateError;
         isValid = false;
-      } 
+      }
     }
 
     // Validate radio groups (excluding frameChoice/frameValue)
@@ -176,6 +185,20 @@ document.addEventListener("DOMContentLoaded", function () {
       if (frameError) frameError.style.display = "none";
     }
 
+    // Validate frameChoicePatterns
+    const isPatternSelected = Array.from(patternRadios).some(r => r.checked);
+    const patternError = document.getElementById("frameChoicePatterns-error");
+
+    if (!isPatternSelected) {
+      if (patternError) {
+        patternError.style.display = "block";
+        if (!firstErrorElement) firstErrorElement = patternError;
+      }
+      isValid = false;
+    } else {
+      if (patternError) patternError.style.display = "none";
+    }
+
     if (!isValid) {
       formError.style.display = "block";
       if (firstErrorElement) {
@@ -187,14 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Submit form
     formError.style.display = "none";
     const formData = new FormData(form);
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqw0Me6RLPijVmHkMQNVfUPsQngtJYLjqj5SIhnlqQd2fMDh9E_nzA21n0PmmPZW_E/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzsBAJVo65rNZtXASccE-xeMPW-rl-VLQlFLEEAf_J0AEPirPa-xJkA2GqG-ad1E9s1/exec';
 
     fetch(scriptURL, {
       method: "POST",
       body: formData,
     })
       .then(response => {
-        alert("הטופס נשלח בהצלחה!");
+        document.querySelector('.cta').classList.add('green');
+       document.querySelector('.cta').disabled = true;
+        document.querySelector('.txt').innerText='ההזמנה נשלחה';
         form.reset();
       })
       .catch(error => {

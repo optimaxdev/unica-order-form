@@ -101,7 +101,7 @@ body {
   font-weight: 700;
   line-height: 60px;
   border: 0;
-  margin: auto;
+  margin: 40px auto 0;
   display: block;
   cursor: pointer;
 }
@@ -329,6 +329,9 @@ body {
 .unicaFormOrder .ltrTable input[name=frameChoice]:first-of-type {
   display: none;
 }
+.unicaFormOrder .ltrTable input[name=frameChoicePatterns]:first-of-type {
+  display: none;
+}
 .unicaFormOrder .headTable {
   background-color: #F7F8F9;
   height: 48px;
@@ -347,4 +350,10 @@ body {
 }
 .unicaFormOrder .areaInput .active {
   display: flex;
+}
+.unicaFormOrder .green {
+  background-color: #00995C;
+}
+.unicaFormOrder #form-error {
+  margin-bottom: 20px;
 }/*# sourceMappingURL=style.css.map */
